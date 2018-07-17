@@ -3,6 +3,10 @@ $color-blue-one: #5496E6;
 
 $color-blue-two: #518BDE;
 
+$color-yellow-one: #F7d754;
+
+$color-gray-two: #E6e6e6;
+
 .grid {
     display: grid;
     height: 100vh;
@@ -15,12 +19,28 @@ $color-blue-two: #518BDE;
         grid-row: 1/2;
         grid-column: 1/4;
         justify-self: center;
-        font-size: 24px;
+        font-size: 50px;
         color: white;
         font-family: 'Montserret';
         font-weight: 300;
-        line-height: 22px;      
+        line-height: 22px; 
         
+        
+    }
+
+    &__remaining {
+        grid-row: 4/-1;
+        grid-column: 1/-1;
+
+        text-align: center;
+        margin-top: 33px;
+
+        color: rgb(49, 49, 49);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 300px;
+        line-height: 27px;
+        text-align: center;
     }
 }
 

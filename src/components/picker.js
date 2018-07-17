@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
 import 'react-datepicker/dist/react-datepicker.css'
+
 class Picker extends Component {
     constructor (props) {
         super(props)
@@ -13,10 +15,11 @@ class Picker extends Component {
       }
      
       handleChange(date) {
-          console.log('trying to change date', date._d)
+          console.log('trying to change date')
         this.setState({
           startDate: date
         });
+        this.props.callback(date);
       }
 
 
@@ -25,7 +28,7 @@ class Picker extends Component {
             <div className="picker">
                 <DatePicker 
                     selected={this.state.startDate}
-                    onchange={this.handleChange}
+                    onChange={this.handleChange}
                 />
             </div>
         )

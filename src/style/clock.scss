@@ -1,0 +1,47 @@
+.clock {
+  grid-row: 3/4;
+  grid-column: 2/11;
+
+  background-color: rgb(59, 59, 59);
+  color: white;
+  height: 75%;
+  align-self: end;
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 275px));
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  padding-top: 24px;
+  grid-column-gap: 50px;
+  margin-top: 500px;
+
+  text-align: center;
+  justify-content: center;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+      text-align: left;
+    font-size: 22px;
+    line-height: 25px;
+    color: $color-yellow-one;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  &__amount {
+    font-size: 90px;
+    font-weight: bold;
+    line-height: 115px;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+
+
