@@ -13,10 +13,20 @@ export default class App extends Component {
   constructor(props) {
     super(props)
 
+    this.timer = 0;
+
     this.state = {
       active: false,
-      startDate: moment()
+      startDate: moment(),
+      timeRemaining: {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      }
     }
+
+    this.handleGenerate = this.handleGenerate.bind(this);
   }
 
   handleChange = function(date) {
@@ -33,7 +43,7 @@ export default class App extends Component {
  var countDownDate = this.state.startDate.toDate().getTime();
 
  // Update the count down every 1 second
- var x = setInterval(function() {
+  this.timer = setInterval(function() {
 
    // Get todays date and time
    var now = new Date().getTime();
@@ -49,27 +59,36 @@ export default class App extends Component {
    
    // Output the result in an element with id="demo"
     const time = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    console.log(time)
+    const timeRemaining = {
+        days,
+        hours,
+        minutes,
+        seconds,
+      
+    }
+    this.setState({timeRemaining})
+
+ 
 
     // If the count down is over, write some text 
     if (distance < 0) {
-        clearInterval(x);
+        clearInterval(this.timer);
         // document.getElementById("demo").innerHTML = "EXPIRED";
     }
-}, 1000);
+}.bind(this), 1000);
 }.bind(this)
 
   renderItems = function() {
     if(this.state.active) {
       return [
-       < Clock />,
+       <Clock timeRemaining={this.state.timeRemaining} />,
         ChangeDate ('Change Date', () => this.setState({active: false})),
         LargeText('04/03'),
         <label className="grid__remaining">Remaining until your (UNSPECIFIED) Birthday </label>
       ]
     } else {
       return [
-        <Picker callback={(date) => this.handleChange(date)}/>,
+        <Picker startDate={this.state.startDate} callback={(date) => this.handleChange(date)}/>,
         Button('Generate Countdown', () => this.handleGenerate())
       ]
     }
