@@ -27,9 +27,14 @@
     border: none;
     cursor: pointer;
     outline: none;
+    
 }
 
 .change-date:active {
     border: 1px solid transparent;
     cursor: progress;
+}
+.change-date:hover {
+    background-color: $color-blue-one;
+    color: white
 }
